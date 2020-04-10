@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import '../index.css';
-import Board from './Board.js';
-import FallenSoldierBlock from './FallenSoldierSection.js';
-import initializeChessBoard from '../helpers/BoardInitializer.js';
+import React, { useState } from './../../node_modules/react';
+import './../index.css';
+import Board from '../Components/Board';
+import FallenSoldierBlock from '../Components/FallenSoldierSection';
+import initializeChessBoard from '../Helpers/BoardInitializer';
 
 function Game() {
 
@@ -13,6 +13,7 @@ function Game() {
   let [player, setPlayer] = useState((turn === 'white') ? 1 : 2)
   let [sourceSelection, setSourceSelection] = useState(-1)
   let [status, setStatus] = useState('')
+  let [resetFlag, setResetFlag] = useState(false)
   
   
   const isMoveLegal = srcToDestPath => {
@@ -69,11 +70,19 @@ function Game() {
           if(sqrs[i] !== null){
             if(sqrs[i].player === 1){
               whiteFSs.push(sqrs[i]);
+
             }
             else{
               blackFSs.push(sqrs[i]);
             }
           }
+          
+          if (sqrs[i] && sqrs[i].pieceType === 'king'){
+            setStatus(`Player ${player} wins, reset?`)
+            setResetFlag(true)
+            return;
+          }
+
           sqrs[i] = sqrs[sourceSelection];
           sqrs[sourceSelection] = null;
           let plyr = player === 1 ? 2 : 1;
@@ -100,6 +109,29 @@ function Game() {
 
   }
 
+  const hasSomeoneWon = () => {
+    if (resetFlag){
+      return (<button onClick={e => resetGame(e)}>
+        Reset Game
+      </button>)
+    }
+    return null;
+  }
+
+
+  const resetGame = e => {
+    e.preventDefault();
+    setSquares(initializeChessBoard())
+    setWhiteFallenSoldiers([])
+    setBlackFallenSoldiers([])
+    setTurn(Math.round(Math.random()) ? 'white' : 'black')
+    setPlayer((turn === 'white') ? 1 : 2)
+    setSourceSelection(-1)
+    setStatus('')
+    setResetFlag(false)
+  }
+
+
     /**
    * Check all path indices are null. For one steps move of pawn/others or jumping moves of knight array is empty, so  move is legal.
    * @param  {[type]}  srcToDestPath [array of board indices comprising path between src and dest ]
@@ -125,12 +157,15 @@ function Game() {
 
         </div>
         <div className="game-status">{status}</div>
+        <div className='game-status'>{hasSomeoneWon()}</div>
 
         <div className="fallen-soldier-block">
           
           {<FallenSoldierBlock
           whiteFallenSoldiers = {whiteFallenSoldiers}
           blackFallenSoldiers = {blackFallenSoldiers}
+          status={status}
+          setStatus={setStatus}
           />
         }
         </div>

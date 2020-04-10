@@ -1,10 +1,11 @@
-import React from 'react'
+import React from './../../node_modules/react'
 
 function Bishop(player, iconUrl) {
   return (
     {
       player,
       iconUrl,
+      pieceType: 'bishop',
       style: {
         backgroundImage: `url(${player === 1? "https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg" : "https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg"})`
       },

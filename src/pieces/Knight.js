@@ -1,10 +1,11 @@
-import React from 'react'
+import React from './../../node_modules/react'
 
 function Knight(player, iconUrl) {
   return (
     {
       player,
       iconUrl,
+      pieceType: 'knight',
       style: {
         backgroundImage: `url(${player === 1? "https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt45.svg" : "https://upload.wikimedia.org/wikipedia/commons/e/ef/Chess_ndt45.svg"})`
       },

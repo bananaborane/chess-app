@@ -1,10 +1,11 @@
-import React from 'react'
+import React from './../../node_modules/react'
 
 function Pawn(player, squares, iconUrl) {
   return (
     {
       player,
       iconUrl,
+      pieceType: 'pawn',
       style: {
         backgroundImage: `url(${player === 1 ?  "https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg" : "https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg"})`
       },

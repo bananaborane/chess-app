@@ -1,10 +1,11 @@
-import React from 'react'
+import React from './../../node_modules/react'
 
 function King(player, iconUrl) {
   return (
     {
       player,
       iconUrl,
+      pieceType: 'king',
       style: {
         backgroundImage: `url(${player === 1? "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg" : "https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg"})`
       },

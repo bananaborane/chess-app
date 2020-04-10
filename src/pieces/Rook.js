@@ -1,10 +1,11 @@
-import React from 'react'
+import React from './../../node_modules/react'
 
 function Rook(player, iconUrl) {
   return (
     {
       player,
       iconUrl,
+      pieceType: 'rook',
       style: {
         backgroundImage: `url(${player === 1? "https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg" : "https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg"})`
       },
