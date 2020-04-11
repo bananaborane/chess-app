@@ -1,6 +1,6 @@
 import React from "./../../node_modules/react";
 import "../index.css";
-import Square from "./Square.js";
+import Square from "./Square";
 
 function Board(props) {
   

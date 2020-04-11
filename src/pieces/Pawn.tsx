@@ -1,6 +1,6 @@
-import React from './../../node_modules/react'
+import React from 'react'
 
-function Pawn(player, squares, iconUrl) {
+function Pawn(player: number, squares?: Array<Object>, iconUrl?: string) {
   return (
     {
       player,

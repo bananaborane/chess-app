@@ -1,7 +1,7 @@
-import React, { useState } from './../../node_modules/react';
+import React, { useState } from 'react';
 import './../index.css';
-import Board from '../Components/Board';
-import FallenSoldierBlock from '../Components/FallenSoldierSection';
+import Board from './Board';
+import FallenSoldierBlock from './FallenSoldierSection';
 import initializeChessBoard from '../Helpers/BoardInitializer';
 
 function Game() {
@@ -122,11 +122,11 @@ function Game() {
   const resetGame = e => {
     e.preventDefault();
     setSquares(initializeChessBoard())
+    setSourceSelection(-1)
     setWhiteFallenSoldiers([])
     setBlackFallenSoldiers([])
-    setTurn(Math.round(Math.random()) ? 'white' : 'black')
-    setPlayer((turn === 'white') ? 1 : 2)
-    setSourceSelection(-1)
+    setTurn( Math.round(Math.random()) ? 'white' : 'black' )
+    setPlayer( (turn === 'white') ? 1 : 2 )
     setStatus('')
     setResetFlag(false)
   }
@@ -137,7 +137,6 @@ function Game() {
    * @param  {[type]}  srcToDestPath [array of board indices comprising path between src and dest ]
    * @return {Boolean}               
    */
-
   
 
 

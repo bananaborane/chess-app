@@ -1,7 +1,7 @@
 import Bishop from '../Pieces/Bishop.js';
 import King from '../Pieces/King.js';
 import Knight from '../Pieces/Knight.js';
-import Pawn from '../Pieces/Pawn.js';
+import Pawn from '../Pieces/Pawn';
 import Queen from '../Pieces/Queen.js';
 import Rook from '../Pieces/Rook.js';
 
