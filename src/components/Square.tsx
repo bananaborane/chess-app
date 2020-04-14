@@ -7,6 +7,7 @@ interface SquareProps {
   shade?: string;
   onClick?: () => void;
   style?: CSSProperties;
+  piece?: [];
 }
 
 export default function Square(props: SquareProps) {

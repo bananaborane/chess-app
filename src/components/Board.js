@@ -24,7 +24,6 @@ function Board(props) {
         }
         board.push(<div className="board-row">{squareRows}</div>);
       }
-      console.log('from board.js', board)
       
       return board;
     }

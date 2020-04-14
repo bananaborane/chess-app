@@ -1,10 +1,15 @@
-import React from './../../node_modules/react'
+import React from 'react'
 import '../index.css';
 import Square from './Square';
 
-function FallenSoldierSection(props) {
+interface FallenSoldiersProps {
+  whiteFallenSoldiers?: [];
+  blackFallenSoldiers?: [];
+}
 
-  const renderSquare = (square, i, squareShade) => {
+function FallenSoldierSection(props: FallenSoldiersProps) {
+
+  const renderSquare = (square: any, i: number) => {
     return (<Square 
     piece = {square} 
     style = {square.style}
